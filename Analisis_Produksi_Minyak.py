@@ -216,5 +216,10 @@ st.table(data_countnol)
 
 #Menghilangkan Warning di Streamlit======================
 st.set_option('deprecation.showPyplotGlobalUse', False)
-
+[theme]
+primaryColor="#fc4422"
+backgroundColor="#121212"
+secondaryBackgroundColor="#1c1c1c"
+textColor="#fbeBe6"
+font="sans serif"
 #================================APLIKASI SELESAI===========================================================
