@@ -153,9 +153,11 @@ for p in range(len(json_data)):
         country_name = list(json_data['name'])[p]
         country_region = list(json_data['region'])[p]
         country_subregion = list(json_data['sub-region'])[p]
-
-st.markdown("## Negara Yang Memiliki Produksi Minyak Mentah Terkecil Pada Tahun {}".format(T))
-st.text("{} \n{} \n{} \n{} \n{}".format(production_value, kode_negara, country_name, country_region, country_subregion))
+        
+col1, col2 = st.columns(2)
+with col1:
+  st.markdown("## Negara Yang Memiliki Produksi Minyak Mentah Terkecil Pada Tahun {}".format(T))
+  st.text("{} \n{} \n{} \n{} \n{}".format(production_value, kode_negara, country_name, country_region, country_subregion))
 
 data_countmin = data_count[data_count.kumulatif != 0]
 data_countmin = data_countmin.sort_values(by=['kumulatif'], ascending=True)
@@ -172,8 +174,9 @@ for x in range(len(json_data)):
         country_region = list(json_data['region'])[x]
         country_subregion = list(json_data['sub-region'])[x]
 
-st.markdown( "## Negara Yang Memiliki Produksi Minyak Mentah Terkecil ")
-st.text("{} \n{} \n{} \n{} \n{}".format(production_value, kode_negara, country_name, country_region, country_subregion))
+with col2:
+   st.markdown( "## Negara Yang Memiliki Produksi Minyak Mentah Terkecil ")
+   st.text("{} \n{} \n{} \n{} \n{}".format(production_value, kode_negara, country_name, country_region, country_subregion))
 
 #==========================================PRODUKSI NOL==============================
 st.markdown("## Negara Yang Memiliki Jumlah Produksi Minyak Mentah Nol ")
