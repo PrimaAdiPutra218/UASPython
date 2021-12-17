@@ -25,82 +25,86 @@ st.markdown( "## Aplikasi Sederhana Analisis Minyak Mentah ")
 
 
 #=============================== SOAL NOMOR 1 =========================================================================
-st.markdown( "## Grafik Hubungan Antara Produksi Minyak dengan Waktu Pada Suatu Negara ")
-X = st.text_input("Masukkan Kode negara: ")
+col1, col2, col3 = st.columns(3)
+with col1:
+  st.markdown( "## Grafik Hubungan Antara Produksi Minyak dengan Waktu Pada Suatu Negara ")
+  X = st.text_input("Masukkan Kode negara: ")
 
-list_a = []
+  list_a = []
 
-for i in list(csv_data['kode_negara']):
+  for i in list(csv_data['kode_negara']):
     if i not in list(json_data['alpha-3']):
         list_a.append(i)
 
-for i in list_a:
+  for i in list_a:
     csv_data = csv_data[csv_data.kode_negara != i]
 
-list_country_name = []
-data1 = csv_data.loc[csv_data['kode_negara'] == X]
+  list_country_name = []
+  data1 = csv_data.loc[csv_data['kode_negara'] == X]
 
-data1.plot(x='tahun', y='produksi')
-grafik1 = plt.show()
-col1, col2, col3 = st.columns(3)
-with col1:
+  data1.plot(x='tahun', y='produksi')
+  grafik1 = plt.show()
+
+
   st.pyplot(grafik1)
 #========================================================================================================================
 
 
 #========================SOAL NOMOR 2====================================================================================
-st.markdown( "## Grafik Negara Dengan Produksi Terbesar Pada Tahun Tertentu ")
-list_tahun = []
+with col2:
+  st.markdown( "## Grafik Negara Dengan Produksi Terbesar Pada Tahun Tertentu ")
+  list_tahun = []
 #==========Pembuatan Select Box==========
-for i in list(csv_data['tahun']):
+  for i in list(csv_data['tahun']):
     if i not in list_tahun:
         list_tahun.append(i)
-T = st.selectbox("Masukkan tahun: ", list_tahun)
+  T = st.selectbox("Masukkan tahun: ", list_tahun)
 #========================================
 #Pengubahan input menjadi integer========
-T = int(T)
+  T = int(T)
 #========================================
-B_terbesar = st.number_input("Masukkan banyak negara: ", min_value=1)
-B_terbesar = int(B_terbesar)
+  B_terbesar = st.number_input("Masukkan banyak negara: ", min_value=1)
+  B_terbesar = int(B_terbesar)
 
-data2 = csv_data.loc[csv_data['tahun'] == T]
-data2 = data2.sort_values(by=['produksi'], ascending=False)
-data3 = data2[:B_terbesar]
+  data2 = csv_data.loc[csv_data['tahun'] == T]
+  data2 = data2.sort_values(by=['produksi'], ascending=False)
+  data3 = data2[:B_terbesar]
 
-data3.plot.bar(x='kode_negara', y='produksi')
-grafik = plt.show()
-with col2:
+  data3.plot.bar(x='kode_negara', y='produksi')
+  grafik = plt.show()
+
   st.pyplot(grafik)
 #===============================================================================================================================
 
 
 #==============================SOAL NOMOR 3=====================================================================================
-st.markdown( "## Grafik Negara Dengan Produksi Kumulatif Terbesar  ")
+with col3:
+  st.markdown( "## Grafik Negara Dengan Produksi Kumulatif Terbesar  ")
 #Pembuatan List=====================================================
-count = []
-list_count = []
+  count = []
+  list_count = []
 #===================================================================
 #Input banyak negara yg diinginkan==================================
-B_kumulatif = st.number_input("Masukkan banyak negara: ", min_value=1, key = "B_kumulatif")
+  B_kumulatif = st.number_input("Masukkan banyak negara: ", min_value=1, key = "B_kumulatif")
 #mengubah menjadi integer=============
-B_kumulatif = int(B_kumulatif)
+  B_kumulatif = int(B_kumulatif)
 #===================================
-for x in list(csv_data['kode_negara']):
+  for x in list(csv_data['kode_negara']):
     if x not in list_count:
         list_count.append(x)
 
-for y in list_count:
+  for y in list_count:
     a = csv_data.loc[csv_data['kode_negara'] == y, 'produksi'].sum()
     count.append(a)
 
-data_count = pd.DataFrame(list(zip(list_count, count)), columns=['kode_negara', 'kumulatif'])
-data_count = data_count.sort_values(by=['kumulatif'], ascending=False)
-data_count1 = data_count[:B_kumulatif] 
+  data_count = pd.DataFrame(list(zip(list_count, count)), columns=['kode_negara', 'kumulatif'])
+  data_count = data_count.sort_values(by=['kumulatif'], ascending=False)
+  data_count1 = data_count[:B_kumulatif] 
 
 #Pembuatan Grafik===================================================
-data_count1.plot.bar(x='kode_negara', y='kumulatif')
-grafik3 = plt.show()
-with col3:
+  data_count1.plot.bar(x='kode_negara', y='kumulatif')
+  grafik3 = plt.show()
+
   st.pyplot(grafik3)
 #============================================================================================================================
 
