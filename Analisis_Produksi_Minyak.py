@@ -98,7 +98,7 @@ data_count1 = data_count[:B_kumulatif]
 #Pembuatan Grafik===================================================
 data_count1.plot.bar(x='kode_negara', y='kumulatif')
 grafik3 = plt.show()
-st.altair_chart(grafik3)
+st.pyplot(grafik3)
 #============================================================================================================================
 
 
