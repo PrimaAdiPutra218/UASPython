@@ -18,8 +18,7 @@ file_json = json.load(buka)
 csv_data = pd.read_csv("produksi_minyak_mentah.csv")
 json_data = pd.DataFrame.from_dict(file_json, orient = 'columns')
 
-st.set_page_config(page_title='tes streamlit',
-                   layout='wide', page_icon=':oil_drum:')
+
 
 st.markdown( "## Aplikasi Sederhana Analisis Minyak Mentah ")
 #=================================================================================================
