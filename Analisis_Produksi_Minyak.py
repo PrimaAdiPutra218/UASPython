@@ -43,7 +43,7 @@ data1 = csv_data.loc[csv_data['kode_negara'] == X]
 
 data1.plot(x='tahun', y='produksi')
 grafik1 = plt.show()
-st.line_chart(grafik1)
+st.pyplot(grafik1)
 #========================================================================================================================
 
 
@@ -68,7 +68,7 @@ data3 = data2[:B_terbesar]
 
 data3.plot.bar(x='kode_negara', y='produksi')
 grafik = plt.show()
-st.bar_chart(grafik)
+st.pyplot(grafik)
 #===============================================================================================================================
 
 
