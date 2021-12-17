@@ -177,6 +177,7 @@ st.markdown( "## Negara Yang Memiliki Produksi Minyak Mentah Terkecil ")
 st.text("{} \n{} \n{} \n{} \n{}".format(production_value, kode_negara, country_name, country_region, country_subregion))
 
 #==========================================PRODUKSI NOL==============================
+st.markdown("## Negara Yang Memiliki Jumlah Produksi Minyak Mentah Nol ")
 data_zero = data2[data2.produksi == 0]
 zero_country_list = []
 zero_region_list = []
