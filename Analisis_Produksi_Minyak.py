@@ -42,9 +42,8 @@ list_country_name = []
 data1 = csv_data.loc[csv_data['kode_negara'] == X]
 
 data1.plot(x='tahun', y='produksi')
-plt.xlabel('Country')
-plt.ylabel('Confirmed Cases')
-plt.bar(country, confirmed, color='green', width=0.4)
+
+plt.bar(tahun, produksi, color='green', width=0.4)
 grafik1 = plt.show()
 st.pyplot(grafik1)
 #========================================================================================================================
