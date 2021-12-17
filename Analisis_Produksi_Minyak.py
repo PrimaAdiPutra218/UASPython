@@ -42,7 +42,9 @@ data1 = csv_data.loc[csv_data['kode_negara'] == X]
 
 data1.plot(x='tahun', y='produksi')
 grafik1 = plt.show()
-st.pyplot(grafik1)
+col1, col2, col3 = st.columns(3)
+with col1:
+  st.pyplot(grafik1)
 #========================================================================================================================
 
 
@@ -67,7 +69,8 @@ data3 = data2[:B_terbesar]
 
 data3.plot.bar(x='kode_negara', y='produksi')
 grafik = plt.show()
-st.pyplot(grafik)
+with col2:
+  st.pyplot(grafik)
 #===============================================================================================================================
 
 
@@ -97,7 +100,8 @@ data_count1 = data_count[:B_kumulatif]
 #Pembuatan Grafik===================================================
 data_count1.plot.bar(x='kode_negara', y='kumulatif')
 grafik3 = plt.show()
-st.pyplot(grafik3)
+with col3:
+  st.pyplot(grafik3)
 #============================================================================================================================
 
 
