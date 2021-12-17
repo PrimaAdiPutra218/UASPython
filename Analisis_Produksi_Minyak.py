@@ -211,7 +211,7 @@ data_countnol['region'] = zero_count_region_list
 data_countnol['sub-region'] = zero_count_subregion_list
 
 #====================Menampilkan di streamlit=======================
-st.dataframe(data_zero)
+st.table(data_zero)
 st.table(data_countnol)
 
 #Menghilangkan Warning di Streamlit======================
