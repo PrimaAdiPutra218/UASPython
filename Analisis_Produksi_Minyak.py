@@ -79,7 +79,7 @@ count = []
 list_count = []
 #===================================================================
 #Input banyak negara yg diinginkan==================================
-B_kumulatif = st.number_input("Masukkan banyak negara: ", min_value=1)
+B_kumulatif = st.number_input("Masukkan banyak negara: ", min_value=1, key = "B_kumulatif")
 #mengubah menjadi integer=============
 B_kumulatif = int(B_kumulatif)
 #===================================
