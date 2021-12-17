@@ -27,7 +27,7 @@ st.markdown( "## Aplikasi Sederhana Analisis Minyak Mentah ")
 
 #=============================== SOAL NOMOR 1 =========================================================================
 st.markdown( "## Grafik Hubungan Antara Produksi Minyak dengan Waktu Pada Suatu Negara ")
-X = st.text_input("Masukkan nama negara: ")
+X = st.text_input("Masukkan Kode negara: ")
 
 list_a = []
 
